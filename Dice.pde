@@ -30,7 +30,7 @@ void monster(){
   rect(480,90,250,160,40);
   triangle(520,60,490,100,550,100);
   triangle(690,60,660,100,720,100);
-  fill(20);
+  fill(50);
   textSize(50);
   if(remHealth>0){
     ellipse(520,150,20,20);
@@ -43,20 +43,20 @@ void monster(){
 }
 void monHealthBar(){
   remHealth=(int)(monHealth/10);
-  fill(20);
+  fill(50);
   rect(455,300,300,10);
   if(remHealth>0){
     fill(250);
     rect(455,300,remHealth,10);  
   }else{
-    fill(230);
+    fill(250);
     textSize(20);
     text("Y O U  W I N  :)", 600, 335);
 
   }
 }
 void scoreCount(){
-  fill(230);
+  fill(250);
   textSize(20);
   if(first==true){
     text("C L I C K",600,370);

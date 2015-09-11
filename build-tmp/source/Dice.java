@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class Dice extends PApplet {
 
-//Helen Zhang, Block 1, Lightning
+//Helen Zhang, Block 1, Dice
 int diceTotal, monHealth=3000, remHealth=300;
 boolean first = true;
 public void setup(){
@@ -27,13 +27,11 @@ public void draw(){
   first = false;
   background(0xff24354B);
   diceTotal=0;
-  System.out.println(monHealth);
   for(int x=5; x<401; x+=50){
     for(int y = 5; y < 401; y += 50){
       Die bob = new Die(x,y);
       bob.show();
       diceTotal=diceTotal+bob.diceNum;
-      System.out.println(diceTotal);
     }
   }
   monHealthBar();
@@ -48,7 +46,7 @@ public void monster(){
   rect(480,90,250,160,40);
   triangle(520,60,490,100,550,100);
   triangle(690,60,660,100,720,100);
-  fill(20);
+  fill(50);
   textSize(50);
   if(remHealth>0){
     ellipse(520,150,20,20);
@@ -60,23 +58,21 @@ public void monster(){
   text(" ^",600,180);
 }
 public void monHealthBar(){
-  System.out.println(monHealth);
   remHealth=(int)(monHealth/10);
-  fill(20);
+  fill(50);
   rect(455,300,300,10);
   if(remHealth>0){
     fill(250);
     rect(455,300,remHealth,10);  
   }else{
-    fill(230);
+    fill(250);
     textSize(20);
     text("Y O U  W I N  :)", 600, 335);
-    System.out.println("Win");
 
   }
 }
 public void scoreCount(){
-  fill(230);
+  fill(250);
   textSize(20);
   if(first==true){
     text("C L I C K",600,370);
@@ -98,20 +94,6 @@ class Die {
   public void show(){
     fill(250);
     rect(diceX,diceY,40,40,10);
-
-    if (diceNum == 1 ){
-      println(1);
-    }else if (diceNum == 2){
-      println(2);
-    }else if (diceNum == 3){
-      println(3);
-    }else if (diceNum == 4){
-      println(4);
-    }else if (diceNum == 5){
-      println(5);
-    }else{
-      println(6);
-    }
     fill(50);
     if(diceNum==1||diceNum==3){
       ellipse(diceX+20,diceY+20,5,5);
