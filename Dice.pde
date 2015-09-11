@@ -11,13 +11,11 @@ void draw(){
   first = false;
   background(#24354B);
   diceTotal=0;
-  System.out.println(monHealth);
   for(int x=5; x<401; x+=50){
     for(int y = 5; y < 401; y += 50){
       Die bob = new Die(x,y);
       bob.show();
       diceTotal=diceTotal+bob.diceNum;
-      System.out.println(diceTotal);
     }
   }
   monHealthBar();
@@ -44,7 +42,6 @@ void monster(){
   text(" ^",600,180);
 }
 void monHealthBar(){
-  System.out.println(monHealth);
   remHealth=(int)(monHealth/10);
   fill(20);
   rect(455,300,300,10);
@@ -55,7 +52,6 @@ void monHealthBar(){
     fill(230);
     textSize(20);
     text("Y O U  W I N  :)", 600, 335);
-    System.out.println("Win");
 
   }
 }
@@ -82,20 +78,6 @@ class Die {
   void show(){
     fill(250);
     rect(diceX,diceY,40,40,10);
-
-    if (diceNum == 1 ){
-      println(1);
-    }else if (diceNum == 2){
-      println(2);
-    }else if (diceNum == 3){
-      println(3);
-    }else if (diceNum == 4){
-      println(4);
-    }else if (diceNum == 5){
-      println(5);
-    }else{
-      println(6);
-    }
     fill(50);
     if(diceNum==1||diceNum==3){
       ellipse(diceX+20,diceY+20,5,5);
