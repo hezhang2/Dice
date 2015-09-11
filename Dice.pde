@@ -1,4 +1,4 @@
-//Helen Zhang, Block 1, Lightning
+//Helen Zhang, Block 1, Dice
 int diceTotal, monHealth=3000, remHealth=300;
 boolean first = true;
 void setup(){
