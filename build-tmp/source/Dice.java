@@ -15,13 +15,14 @@ import java.io.IOException;
 public class Dice extends PApplet {
 
 //Helen Zhang, Block 1, Dice
-int diceTotal, monHealth=3000, remHealth=300;
+int diceTotal, monHealth=3000, remHealth=300, turnNum=0;
 boolean first = true;
 public void setup(){
   size(405+400,405);
   noLoop();
   noStroke();
   textAlign(CENTER,CENTER);
+  textSize(20);
 }
 public void draw(){
   first = false;
@@ -37,9 +38,16 @@ public void draw(){
   monHealthBar();
   scoreCount();
   monster();
+  restart();
+  println(turnNum);
+}
+public void restart(){
+	monHealth=3000;
+	turnNum=0;
 }
 public void mousePressed(){
-  redraw();
+	turnNum+=1;
+    redraw();
 }
 public void monster(){
   fill(250);
@@ -48,7 +56,7 @@ public void monster(){
   triangle(690,60,660,100,720,100);
   fill(50);
   textSize(50);
-  if(remHealth>0){
+  if(remHealth>0||turnNum>13){
     ellipse(520,150,20,20);
     ellipse(730-40,150,20,20);
   }else{
@@ -63,12 +71,19 @@ public void monHealthBar(){
   rect(455,300,300,10);
   if(remHealth>0){
     fill(250);
-    rect(455,300,remHealth,10);  
+    rect(455,300,remHealth,10); 
+    if(turnNum>13){
+	textSize(20);
+    	text("Y O U  L O S E :(", 600, 335);
+    	restart();
+    } 
   }else{
-    fill(250);
+  	fill(250);
     textSize(20);
-    text("Y O U  W I N  :)", 600, 335);
-
+    if(turnNum<14){
+    	text("Y O U  W I N  :)", 600, 335);
+    	restart();
+    }
   }
 }
 public void scoreCount(){
