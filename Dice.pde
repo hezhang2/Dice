@@ -20,7 +20,6 @@ void draw() {
   monHealthBar();
   scoreCount();
   monster();
-  println(turnNum);
 }
 void restart() {
   monHealth=3000;
